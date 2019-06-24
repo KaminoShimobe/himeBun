@@ -209,7 +209,7 @@ con.query(`SELECT * FROM user WHERE id = '${message.author.id}'`, (err, rows) =>
 
 			
 			.setAuthor(message.author.username)
-			.setDescription("Points: $" + points + "\n" + bio)
+			.setDescription("Points: " + points + "\n" + bio)
 			.setFooter("ID:" + message.author.id, message.author.avatarURL)
 			.setColor(color); 
 
@@ -245,7 +245,7 @@ con.query(`SELECT * FROM user WHERE id = '${message.author.id}'`, (err, rows) =>
 
 			
 			.setAuthor(message.author.username)
-			.setDescription("Points: $" + points + "\n" + bio)
+			.setDescription("Points: " + points + "\n" + bio)
 			.setFooter("ID:" + other.id, other.avatarURL)
 			.setColor(color); 
 
