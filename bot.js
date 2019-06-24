@@ -295,7 +295,7 @@ function give(){
 				return;
 				}
 				var points = rows[0].points;
-				sql = `UPDATE user SET money = ${points + num} WHERE id = '${other.id}'`;
+				sql = `UPDATE user SET points = ${points + num} WHERE id = '${other.id}'`;
 				console.log("Received $" + num);
 				con.query(sql, console.log);
 				message.reply(`gave ${other} ` + num + ` points!`);
@@ -337,7 +337,7 @@ function take(){
 				return;
 				}
 				var points = rows[0].points;
-				sql = `UPDATE user SET money = ${points - num} WHERE id = '${other.id}'`;
+				sql = `UPDATE user SET points = ${points - num} WHERE id = '${other.id}'`;
 				console.log("Lost $" + num);
 				con.query(sql, console.log);
 				message.reply(`took ${other} ` + num + ` points!`);
