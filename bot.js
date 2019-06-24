@@ -149,18 +149,7 @@ bot.on("message", async message => {
 	
     if(message.channel.type === "dm") return;
 
-if(command === `${prefix}help`){
 
-        message.channel.send(`Greetings, ${message.author}`);
-                 
-
-
-
-         return;
-
-
-
-    }
 	
 function addUser(){
 		
