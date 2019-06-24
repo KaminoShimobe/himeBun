@@ -4,42 +4,43 @@ const prefix = "!";
 
 const bot = new Discord.Client({disableEveryone: true})
 
-// var con_fig = {
-// 	host: "",
-// 	user: "",
-// 	password: process.env.MY_SQL,
-// 	database: "",
-// 	port: 3306
-// };
 
-// var con;
+var con_fig = {
+	host: "us-cdbr-iron-east-02.cleardb.net",
+	user: "b15670f08b7708",
+	password: process.env.MY_SQL,
+	database: "heroku_7c877bc06bc2d8f",
+	port: 3306
+};
 
-// function handleDisconnect() {
-// con = mysql.createConnection(con_fig);
-// con.connect(function(err) {              // The server is either down
-//     if(err) {                                     // or restarting (takes a while sometimes).
-//       console.log('error when connecting to db:', err);
-//       setTimeout(handleDisconnect, 2000); // We introduce a delay before attempting to reconnect,
-//     }                                     // to avoid a hot loop, and to allow our node script to
-//   }); 	
+var con;
 
-// process.on('uncaughtException', function (err) {
-//     console.log(err);
+function handleDisconnect() {
+con = mysql.createConnection(con_fig);
+con.connect(function(err) {              // The server is either down
+    if(err) {                                     // or restarting (takes a while sometimes).
+      console.log('error when connecting to db:', err);
+      setTimeout(handleDisconnect, 2000); // We introduce a delay before attempting to reconnect,
+    }                                     // to avoid a hot loop, and to allow our node script to
+  }); 	
+
+process.on('uncaughtException', function (err) {
+    console.log(err);
 	
-// }); 
+}); 
 	
 
 
-// con.on('error', function(err) {
-//     console.log('db error', err);
-//     if(err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
-//       handleDisconnect();                         // lost due to either server restart, or a
-//     } else {                                      // connnection idle timeout (the wait_timeout
-//        throw err;                                 // server variable configures this)
-//     }
-// });
-//        }
-// handleDisconnect();
+con.on('error', function(err) {
+    console.log('db error', err);
+    if(err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
+      handleDisconnect();                         // lost due to either server restart, or a
+    } else {                                      // connnection idle timeout (the wait_timeout
+       throw err;                                 // server variable configures this)
+    }
+});
+       }
+handleDisconnect();
 
 bot.on('guildMemberAdd', member => {
 
