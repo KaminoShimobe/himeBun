@@ -60,7 +60,7 @@ bot.on('guildMemberRemove', member => {
 con.query(`SELECT * FROM user WHERE id = '${member.user.id}'`, (err, rows) => {
 		if(err) throw err;
 		let sql;
-		let sql;
+		
 		if(rows.length < 1) {
 			
 			return;
