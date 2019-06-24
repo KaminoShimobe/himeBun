@@ -214,7 +214,7 @@ con.query(`SELECT * FROM user WHERE id = '${message.author.id}'`, (err, rows) =>
 	
 function viewOtherUser(){
 	let other = message.mentions.users.first();	
-con.query(`SELECT * FROM user WHERE id = '${message.author.id}'`, (err, rows) => {
+con.query(`SELECT * FROM user WHERE id = '${other.id}'`, (err, rows) => {
 		if(err) throw err;
 
 		if(rows.length < 1) {
