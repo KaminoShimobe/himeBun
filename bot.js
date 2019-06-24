@@ -487,7 +487,7 @@ if(command === `!help`){
 		let help = new Discord.RichEmbed()
 
 			
-			.setTitle("KS-Bot commands")
+			.setTitle("Xiao Mei commands")
 			.setDescription(`**!help**: \n Pulls up this list. \n **!user**: \n Creates a point account  \n **!view [mention]**: \n Views another persons account info. \n **!delete**: \n Deletes your account. \n **$!bio**: \n Sets a bio for your account. \n **!color**: \n Sets a color for your bio. \n ***__ADMIN/MOD ONLY__*** : \n **!give [mention] [amount]**: \n Gives a user an amount of points. \n **!takes [mention] [amount]**: \n Takes away an amount of points from a user.`)
 			.setColor("#1d498e"); 
 
