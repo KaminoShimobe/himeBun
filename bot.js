@@ -43,12 +43,80 @@ con.on('error', function(err) {
        }
 handleDisconnect();
 
+// function increment(){
+// 	con.query(`SELECT * FROM user`, (err, rows) => {
+// 		if(err) throw err;
+// 		let sql;
+		
+// 		function addUp(users, index){
+// 	var person = bot.users.get(rows[index].id);
+		
+		
+// 			if(rows[index].checkpoint < 7 ){	
+			
+// 				var checkpoint = rows[index].checkpoint;
+// 				sql = `UPDATE user SET checkpoint = ${checkpoint + 1} WHERE id = '${rows[index].id}'`;
+// 				console.log("Received a checkpoint! \n Now at " + checkpoint + " days!");
+// 				con.query(sql, console.log);
+// 					dailyCD.add(rows[index].id);		
+// 					  setTimeout(() => {
+// 					  // Removes the user from the set after however long the cooldown is.
+// 					  dailyCD.delete(rows[index].id);
+// 					  message.reply("'s insurance has run out!")
+// 					}, (1000*60*60*24));    
+// 			} else {
+// 				var checkpoint = rows[index].checkpoint;
+// 				var points = rows[index].points;
+// 				if(message.member.roles.find("name", "Mod")){
+// 					sql = `UPDATE user SET checkpoint = ${0}, points =  ${points + 100} WHERE id = '${rows[index].id}'`;
+// 					console.log("Received weekly points! \n Now at " + points + " points!");
+// 					con.query(sql, console.log);
+// 				} else {
+// 					sql = `UPDATE user SET checkpoint = ${0}, points =  ${points + 150} WHERE id = '${rows[index].id}'`;
+// 					console.log("Received weekly points! \n Now at " + points + " points!");
+// 					con.query(sql, console.log);
+// 				}	
+// 			}
+		
+		
+				
+// 				rows.forEach(addUp);	
+// 				console.log("Checkpoints REACHED");
+				
+		
+			
+// 		return;
+		
+// 	});	
+	
+// }		
+	
+
 bot.on('guildMemberAdd', member => {
 
-    
+
+con.query(`SELECT * FROM user WHERE id = '${member.id}'`, (err, rows) => {
+		if(err) throw err;
+		let sql;
+		if(rows.length < 1) {
+			
+			sql = `INSERT INTO user (id, points, bio, hue, checkpoint) VALUES ('${member.id}', ${0}, '!bio to set your bio', '#4286f4', ${0})`;
+			con.query(sql, console.log);
+			member.guild.channels.get("592801832364146721").send(`${member} Hi! Welcome to Alkahest Academy! Check your points with **!view**`);
+			return;
+		}	else {
+
+			console.log("This should not happen...");
+			
+
+			
+			return;
+		}
 
 
-member.guild.channels.get("592801832364146721").send(`${member} Hi! reply with **!user** to create an alkahestry account!`);
+		});
+
+
 
 
 });
