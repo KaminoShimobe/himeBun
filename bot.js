@@ -7,7 +7,7 @@ const bot = new Discord.Client({disableEveryone: true})
 
 
 var con_fig = {
-	host: "uus-cdbr-iron-east-02.cleardb.net",
+	host: "us-cdbr-iron-east-02.cleardb.net",
 	user: "b0fe64548a0534",
 	password: process.env.MY_SQL,
 	database: "heroku_2c147e8bfd6a5fb",
