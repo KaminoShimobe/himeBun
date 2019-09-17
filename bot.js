@@ -6,10 +6,10 @@ const bot = new Discord.Client({disableEveryone: true})
 
 
 var con_fig = {
-	host: "us-cdbr-iron-east-02.cleardb.net",
-	user: "b15670f08b7708",
+	host: "uus-cdbr-iron-east-02.cleardb.ne",
+	user: "b0fe64548a0534",
 	password: process.env.MY_SQL,
-	database: "heroku_7c877bc06bc2d8f",
+	database: "heroku_2c147e8bfd6a5fb,
 	port: 3306
 };
 
@@ -126,7 +126,7 @@ bot.on("message", async message => {
 	
     if(command === `!table`){
 	if(message.author.id == '242118931769196544'){
-		var sql = "CREATE TABLE user (id VARCHAR(30), points BIGINT, bio VARCHAR(100), hue VARCHAR(7))";  
+		var sql = "CREATE TABLE user (id VARCHAR(30), points BIGINT, bio VARCHAR(100), hue VARCHAR(7), checkpoint TINYINT)";  
 		
 	con.query(sql, function (err, result) {
     	if (err) throw err;
